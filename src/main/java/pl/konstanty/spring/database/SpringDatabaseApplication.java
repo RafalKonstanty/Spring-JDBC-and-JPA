@@ -25,6 +25,8 @@ public class SpringDatabaseApplication implements CommandLineRunner {
 		// when SpringApplicationContext is ready this code will be run
 //		System.out.println(dao.findAll());
 //		logger.info(String.valueOf(dao.findAll()));
-		logger.info(String.valueOf(dao.findById(1)));
+//		logger.info(String.valueOf(dao.findById(1)));
+//		logger.info(String.valueOf("Number of rows affected: " + dao.deleteById(2)));
+
 	}
 }

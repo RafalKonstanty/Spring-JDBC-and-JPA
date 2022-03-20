@@ -27,6 +27,11 @@ public class PersonJdbcDAO {
                 new BeanPropertyRowMapper<Person>(Person.class));
     }
 
+    public int deleteById(int id) {
+        return jdbcTemplate.update("DELETE FROM person where id=?", id);
+
+    }
+
 
 
 }
