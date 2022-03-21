@@ -29,6 +29,8 @@ public class SpringJpaApplication implements CommandLineRunner {
 
 		logger.info("Updating person: {}" ,repository.update(new Person(2,"James", "US", new Date())));
 		logger.info("Inserting person: {}",repository.insert(new Person( "Nathan", "Poland", new Date())));
+		repository.deleteById(1);
 
+		logger.info("All persons: {}", repository.findAll());
 	}
 }

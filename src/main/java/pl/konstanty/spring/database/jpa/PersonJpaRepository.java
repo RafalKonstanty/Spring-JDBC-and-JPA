@@ -6,7 +6,9 @@ import pl.konstanty.spring.database.entity.Person;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Repository
 @Transactional // when doing some updating - usually in Services not repositories
@@ -31,5 +33,18 @@ public class PersonJpaRepository {
         return entityManager.merge(person);
     }
 
+    public void deleteById(int id){
+        Person person = findById(id);
+        entityManager.remove(person);
+    }
+
+    // HQL - hibernate Query Language, with an entity manager we have to write in HQL
+    // JPQL - java persistence query language
+    // NamedQuery - used with JPQL
+    public List<Person> findAll(){
+        TypedQuery<Person> namedQuery = entityManager.createNamedQuery("find_all_persons", Person.class);
+        return namedQuery.getResultList();
+    }
+    // we can define named query on each Entity
 
 }
